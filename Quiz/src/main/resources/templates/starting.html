@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  	<script th:src="@{js/jquery/jquery-3.4.1.min.js}"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Star Kuis</title>
+    
+    <style>
+     body {
+        color: #566787;
+		background: #f5f5f5;
+		font-family: 'Varela Round', sans-serif;
+		font-size: 12pt;
+	}
+	.table-wrapper {
+        background: #fff;
+        padding: 20px 25px;
+        margin: 30px 0;
+		border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+	.table-title {        
+		padding-bottom: 15px;
+		background: #435d7d;
+		color: #fff;
+		padding: 16px 30px;
+		margin: -20px -25px 10px;
+		border-radius: 3px 3px 0 0;
+    }
+    .container{
+    	color:black;
+    }
+    label{
+    	margin:0;
+    }
+    </style>
+  </head>
+  <body>
+  
+  	<div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2>Starting <b>Quiz</b></h2>
+					</div>
+                </div>
+            </div>
+            
+            <div class="container">
+            	<div>
+            		Question Type 
+            		<hr>
+            	</div>
+            	<form method="POST" th:action="@{starkuis}">
+            	
+            	<div th:each="xr : ${questionheader}" class="mb-3">
+            		<input type="radio" id="q3" name="questionType" th:attr="id=${xr.questionHeaderCode}, value = ${xr.questionHeaderCode}"/>	
+            		<label th:text="${xr.questionType}" th:attr="for=${xr.questionHeaderCode}"></label>
+            	</div>
+            		<button type="submit" class="btn btn-primary" >Mulai Kuis</button>
+            	</form>
+			</div>
+    	</div>
+	</div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  	<script type="text/javascript" th:src="@{js/script.js}"></script>
+  </body>
+</html>
